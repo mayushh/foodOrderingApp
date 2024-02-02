@@ -1,0 +1,60 @@
+as we add component to our app there may be change that one component is affecting other different different kinds of things can happen without even know it 
+so we use testing to check our app is working fine 100 percent of the time or not 
+there are many types of testing 
+ 1- manual testing where a person goes to our website check try to do everything and try of find some bug by doing random stuff and check for it
+    some companies hire employes to do the testing 
+ 2- automation testing where we write a code that test our code
+    * selenium testing
+    
+ E2E - end to end testing where code check entire user journey 
+
+ there is something known as  headless browsers - it does not have any viewport like no ui to user
+ it is faster compared to traditional browsers because it do not need to manupulate view port like it do not need to show  anything in the viewport
+  
+- unit testing - this we need to know this is a job of developer to write testcases to for units of app like cart unit is working fine in every   situation
+- integration testing - testing how all component are integrated or or 
+smoke testing regression testing are also other testing there are 
+
+now for testing we will use react testing library to test our app
+
+
+we are using jest 
+jest is a delightfull javascript testing freamework with a focus on simplicity 
+ so react testing library use jest behing the scene
+ now to install react testing library use
+  npm install --save-dev @testing-library/react 
+  npm i -D jest 
+  now we need to configure jest using
+  npx jest --init and answer the asked question
+  npm i -D jest-environment-jsdom
+  now we need to create a __tests__ folder in our app ( create inside component prefered as shown in namaste react series)
+  now create files inside these folders like cart.test.js use .test.js after every file inside this
+  so when we create files we will write code and import our function that needs to be tested but normal javascript donot understand import 
+  so we need to configure babel in our jest npm install --save-dev babel-jest @babel/core @babel/preset-env
+                                                        
+  we need to congigure this also 
+  if you had .babelrc file already in your app then just 
+  if not then make .babelrc file or babel.config.js file and add this
+             module.exports = {
+                presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+                              };   
+
+ or if you already have .babelrc file in you src just do this
+{
+    "presets": [
+        ["@babel/preset-env", {"targets": {"node": "current"}}],
+        ["@babel/preset-react", {"runtime": "automatic"}]
+                ]
+  }
+  note .babelrc file takes json while babel.config.js will take normal javascript
+  npm i -D @babel/preset-react
+
+  now this react testing library do not know what png jgp  files are so it will throw an error if we render it inside the test 
+  so counter this we use jest inside jest.config file there are many function that are commented out just uncomment moduleNameMapper and inside that just import dummy image string 
+   moduleNameMapper: {
+    "//.(png|jpg|svg)&" :"./body/components/dummyImg.js"
+  },
+  if you want to check weather something is inside the component that you are loading we need to install library
+  npm i -D @testing-library/jest-dom and then import in the test files where you write code for tests 
+  import  '@testing-library/jest-dom'
+  after import use expect(name).toBeInTheDocument()

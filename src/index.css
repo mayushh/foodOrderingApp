@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.broad{
+    background-color: #ccbff4;
+    height: 20vw;
+    width: 98.7vw;
+    margin-bottom:30px ;
+    margin-top: 0;
+    margin-bottom: 30px;
+   
+    
+}
+
+/* .cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    margin-top: 0;
+   
+}
+\*/
+.card{
+    flex: 1;
+    height: 450px;
+    transition: transform 0.2s;
+    z-index: 1;
+    position: relative;
+        
+} 
+.card:hover{
+    transform: scale(1.1);
+    
+}
+
+*{
+    box-sizing: border-box
+    
+}
