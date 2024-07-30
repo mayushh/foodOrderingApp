@@ -12,7 +12,7 @@ const Loading = () => {
       </div>
       <div className='body'>
         <div className="search">
-          <input type="text" value={"loading"}  />
+          <input type="text" onChange={(e)=>{}} value={"loading"}  />
           <button type='submit' >---</button>
         </div>
       </div>
